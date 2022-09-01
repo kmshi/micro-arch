@@ -1,4 +1,4 @@
-## A complete microservice architecure demo
+## A complete scalable and resilent microservice architecure demo
 
 The latest trend is trying to decrease the SDK dependencies of Spring cloud as more as possible, and utilize the non-intrusive services(functions) provided by kubernetes and istio(service mesh). so in this demo, we have the following design considerations:
 
