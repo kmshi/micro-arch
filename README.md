@@ -1,4 +1,4 @@
-## A complete scalable and resilent microservice architecure demo
+## A complete scalable and resilient microservice architecure demo
 
 The latest trend is trying to decrease the SDK dependencies of Spring cloud as more as possible, and utilize the non-intrusive services(functions) provided by kubernetes and istio(service mesh). so in this demo, we have the following design considerations:
 
@@ -8,7 +8,7 @@ The latest trend is trying to decrease the SDK dependencies of Spring cloud as m
 
 ##### Use kubernete/istio configmap/secret instead of spring cloud config service
 
-##### Still keep circuitbreaker,retry from spring cloud resilence4j
+##### Still keep circuitbreaker,retry from spring cloud resilience4j
 
 
 Istio provides non-intrusive traffic management, security, and observability. In this demo, we use helm to show you some how-tos:
