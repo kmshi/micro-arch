@@ -1,0 +1,31 @@
+server.port: 8080
+app.auth-server: localhost
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  sql:
+    init:
+      #mode: always #embedded,never
+      #schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
+    hibernate:
+      ddl-auto: validate #update,#none
+    show-sql: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+
+spring.security.oauth2.resourceserver.jwt.issuer-uri: http://${app.auth-server}
+spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://${app.auth-server}:${server.port}/oauth2/jwks
+
+logging:
+  level:
+    root: INFO

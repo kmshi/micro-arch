@@ -1,0 +1,47 @@
+server.port: 9999
+spring.application.name: auth-server
+server.forward-headers-strategy: framework
+
+# Since the auth-server does not use any of rabbit, db, mongo as defined in application.yml,
+# we need to reset the readiness group for the auth-server.
+# Otherwise will there be no response on the readiness endpoint, instead returning 404.
+management.endpoint.health.group.readiness.include:
+
+logging:
+  level:
+    root: INFO
+
+---
+spring.config.activate.on-profile: docker
+
+server.port: 80
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  sql:
+    init:
+      #mode: always #embedded,never
+      #schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    database: h2
+    hibernate:
+      ddl-auto: validate #update,#none
+    show-sql: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+
+spring.security.oauth2.resourceserver.jwt.issuer-uri: http://${app.auth-server}
+spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://${app.auth-server}:${server.port}/oauth2/jwks
+
+---
+spring.config.activate.on-profile: prod
+
+logging.level.root: WARN
