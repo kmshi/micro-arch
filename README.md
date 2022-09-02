@@ -32,4 +32,11 @@ Also, security is the core of any system, in this demo, I will show you 3 option
 ##### RBAC(Role based access control) service with JWT support
 
 
-Stay tuned...
+We have different architectures for local env and dev/test/prod envs:
+
+##### local env, use docker compose to manage images/containers of core services
+![local env](https://github.com/kmshi/micro-arch/blob/master/doc/local_env.png?raw=true)
+
+##### dev/test/prod envs, use helm to manage services in kubernete/istio
+![dev_prod_env](https://github.com/kmshi/micro-arch/blob/master/doc/dev_prod_env.png?raw=true)
+
