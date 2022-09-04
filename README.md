@@ -29,9 +29,9 @@ Also, security is the core of any system, in this demo, I will show you 3 option
 
 - ##### Integrate 3rd OAuth2 service (eg, auth0)
 
-- ##### Home-grown authorization server(OAuth2)
+- ##### Home-grown OAuth2 authorization server (spring-cloud/authorization-server)
 
-- ##### RBAC(Role based access control) service with JWT support
+- ##### RBAC(Role based access control) service with JWT support (microservices/user-service)
 
 
 
